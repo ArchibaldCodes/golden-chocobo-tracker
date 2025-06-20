@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Golden Chocobo Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .tracker {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 100%;
+    }
+    .dot-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 24px;
+    }
+    .dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #666;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .dot:hover {
+      transform: scale(1.3);
+    }
+    .dot.found {
+      background-color: #00ff88;
+    }
+    .dot-label {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 3px;
+      user-select: none;
+    }
+    .tooltip {
+      visibility: hidden;
+      background-color: #222;
+      color: #fff;
+      text-align: left;
+      padding: 6px 8px;
+      border-radius: 4px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s;
+      font-size: 12px;
+    }
+    .dot:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Golden Chocobo Tracker</h1>
+  <div id="summary" style="text-align:center; margin-bottom:1rem;"></div>
+  <div class="tracker" id="tracker"></div>
+
+  <script>
+    fetch('data.json')
+      .then(res => res.json())
+      .then(data => {
+        const tracker = document.getElementById("tracker");
+        const summary = document.getElementById("summary");
+        const foundIds = new Set(data.map(e => e.id));
+        summary.textContent = `${foundIds.size} / 77 Found`;
+
+        for (let i = 1; i <= 77; i++) {
+          const entry = data.find(e => e.id === i);
+
+          const container = document.createElement("div");
+          container.className = "dot-container";
+
+          const dot = document.createElement("div");
+          dot.className = "dot" + (entry ? " found" : "");
+
+          const tooltip = document.createElement("div");
+          tooltip.className = "tooltip";
+          tooltip.innerHTML = entry
+            ? `#${i}<br>By: ${entry.by}<br>Date: ${entry.date}${entry.note ? `<br>Note: ${entry.note}` : ""}`
+            : `#${i}<br>Not found`;
+
+          const label = document.createElement("div");
+          label.className = "dot-label";
+          label.textContent = i;
+
+          dot.appendChild(tooltip);
+          container.appendChild(dot);
+          container.appendChild(label);
+          tracker.appendChild(container);
+        }
+      });
+  </script>
+</body>
+</html>
