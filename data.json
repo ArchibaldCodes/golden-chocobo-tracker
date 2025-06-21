@@ -1,8 +1,10 @@
 [
+  { "id": 1, "found": true, "by": "Ancestralmtg", "date": "2025-06-20" },
   { "id": 3, "found": true, "by": "jlacomics", "date": "2025-06-11" },
   { "id": 10, "found": true, "by": "hawkzii", "date": "2025-06-07" },
   { "id": 11, "found": true, "by": "Xopher314", "date": "2025-06-06" },
   { "id": 14, "found": true, "by": "Gamers Guild", "date": "2025-06-07" },
+  { "id": 17, "found": true, "by": "toamagic", "date": "2025-06-20" },
   { "id": 23, "found": true, "by": "Tyler Henry", "date": "2025-06-15" },
   { "id": 25, "found": true, "by": "EducationFoot7084", "date": "2025-06-16" },
   { "id": 33, "found": true, "by": "TwinBlasters", "date": "2025-06-09" },
