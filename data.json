@@ -1,4 +1,7 @@
-[
+
+{
+  "lastUpdated": "2025-06-22",
+  "entries": [
   { "id": 1, "found": true, "by": "Ancestralmtg", "date": "2025-06-20" },
   { "id": 3, "found": true, "by": "jlacomics", "date": "2025-06-11" },
   { "id": 10, "found": true, "by": "hawkzii", "date": "2025-06-07" },
@@ -26,4 +29,6 @@
   { "id": 62, "found": true, "by": "fish_post", "date": "2025-06-17", "note": "need more proof" },
   { "id": 67, "found": true, "by": "Dick and Janes", "date": "2025-06-13" },
   { "id": 69, "found": true, "by": "Joe Lowdon", "date": "2025-06-19" }
-]
+  
+  ]
+}
