@@ -3,6 +3,7 @@
   { "id": 3, "found": true, "by": "jlacomics", "date": "2025-06-11" },
   { "id": 10, "found": true, "by": "hawkzii", "date": "2025-06-07" },
   { "id": 11, "found": true, "by": "Xopher314", "date": "2025-06-06" },
+  { "id": 12, "found": true, "by": "Grey Guardian Games", "date": "2025-06-13" },
   { "id": 14, "found": true, "by": "Gamers Guild", "date": "2025-06-07" },
   { "id": 17, "found": true, "by": "toamagic", "date": "2025-06-20" },
   { "id": 23, "found": true, "by": "Tyler Henry", "date": "2025-06-15" },
@@ -10,7 +11,13 @@
   { "id": 33, "found": true, "by": "TwinBlasters", "date": "2025-06-09" },
   { "id": 36, "found": true, "by": "anzyslo", "date": "2025-06-17", "note": "need more proof" },
   { "id": 40, "found": true, "by": "gapman", "date": "2025-06-06", "note": "whatnot" },
-  { "id": 41, "found": true, "by": "Collector_Lounge", "date": "2025-06-07" },
+  {
+    "id": 41,
+    "found": true,
+    "by": "Collector's Lounge",
+    "date": "2025-06-05",
+    "note": "Recent Sale: $40,000 (2025-06-21)"
+  },
   { "id": 43, "found": true, "by": "anzyslo", "date": "2025-06-17", "note": "need more proof" },
   { "id": 45, "found": true, "by": "tpezair", "date": "2025-06-16" },
   { "id": 55, "found": true, "by": "bacaihau", "date": "2025-06-06" },
