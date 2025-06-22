@@ -14,6 +14,12 @@
     }
     h1 {
       text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    #last-updated {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
       margin-bottom: 2rem;
     }
     .tracker {
@@ -71,14 +77,34 @@
       visibility: visible;
       opacity: 1;
     }
+    .footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #444;
+      margin-top: 4rem;
+    }
+    .footer a {
+      color: #444;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <h1>Golden Chocobo Tracker</h1>
+  <div id="last-updated"></div>
   <div id="summary" style="text-align:center; margin-bottom:1rem;"></div>
   <div class="tracker" id="tracker"></div>
+  <div class="footer">
+    Data credit: <a href="https://goldenchocobotracker.vercel.app/" target="_blank">goldenchocobotracker.vercel.app</a>
+  </div>
 
   <script>
+    // Last Updated Display
+    const updatedEl = document.getElementById("last-updated");
+    const now = new Date();
+    updatedEl.textContent = "Last Updated: " + now.toISOString().slice(0, 10);
+
+    // Tracker Data
     fetch('data.json')
       .then(res => res.json())
       .then(data => {
