@@ -98,46 +98,43 @@
     Data credit: <a href="https://goldenchocobotracker.vercel.app/" target="_blank">goldenchocobotracker.vercel.app</a>
   </div>
 
-  <script>
-    // Last Updated Display
-    const updatedEl = document.getElementById("last-updated");
-    const now = new Date();
-    updatedEl.textContent = "Last Updated: " + now.toISOString().slice(0, 10);
+<script>
+  fetch('data.json')
+    .then(res => res.json())
+    .then(data => {
+      // Set Last Updated date
+      const updatedEl = document.getElementById("last-updated");
+      updatedEl.textContent = "Last Updated: " + data.lastUpdated;
 
-    // Tracker Data
-    fetch('data.json')
-      .then(res => res.json())
-      .then(data => {
-        const tracker = document.getElementById("tracker");
-        const summary = document.getElementById("summary");
-        const foundIds = new Set(data.map(e => e.id));
-        summary.textContent = `${foundIds.size} / 77 Found`;
+      const tracker = document.getElementById("tracker");
+      const summary = document.getElementById("summary");
+      const foundIds = new Set(data.entries.map(e => e.id));
+      summary.textContent = `${foundIds.size} / 77 Found`;
 
-        for (let i = 1; i <= 77; i++) {
-          const entry = data.find(e => e.id === i);
+      for (let i = 1; i <= 77; i++) {
+        const entry = data.entries.find(e => e.id === i);
 
-          const container = document.createElement("div");
-          container.className = "dot-container";
+        const container = document.createElement("div");
+        container.className = "dot-container";
 
-          const dot = document.createElement("div");
-          dot.className = "dot" + (entry ? " found" : "");
+        const dot = document.createElement("div");
+        dot.className = "dot" + (entry ? " found" : "");
 
-          const tooltip = document.createElement("div");
-          tooltip.className = "tooltip";
-          tooltip.innerHTML = entry
-            ? `#${i}<br>By: ${entry.by}<br>Date: ${entry.date}${entry.note ? `<br>Note: ${entry.note}` : ""}`
-            : `#${i}<br>Not found`;
+        const tooltip = document.createElement("div");
+        tooltip.className = "tooltip";
+        tooltip.innerHTML = entry
+          ? `#${i}<br>By: ${entry.by}<br>Date: ${entry.date}${entry.note ? `<br>Note: ${entry.note}` : ""}`
+          : `#${i}<br>Not found`;
 
-          const label = document.createElement("div");
-          label.className = "dot-label";
-          label.textContent = i;
+        const label = document.createElement("div");
+        label.className = "dot-label";
+        label.textContent = i;
 
-          dot.appendChild(tooltip);
-          container.appendChild(dot);
-          container.appendChild(label);
-          tracker.appendChild(container);
-        }
-      });
-  </script>
-</body>
-</html>
+        dot.appendChild(tooltip);
+        container.appendChild(dot);
+        container.appendChild(label);
+        tracker.appendChild(container);
+      }
+    });
+</script>
+
